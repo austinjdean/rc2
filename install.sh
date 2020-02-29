@@ -15,7 +15,7 @@ fi
 repo_name="rc2"
 git_dir="$HOME/git"
 package_dir="$git_dir/$repo_name/nice_package"
-repo_programs=(zsh vim guake sublime-text xclip nmap)
+repo_programs="zsh vim guake sublime-text xclip nmap"
 default_directories=(Desktop Documents Downloads Music Pictures Public Templates Videos)
 
 # Add Sublime to repos and update apt sources
@@ -39,7 +39,9 @@ echo "[+] Done."
 # ================
 echo "[i] Installing programs from apt..."
 
-sudo apt install -y "$repo_programs"
+sudo apt-get install -y --ignore-missing $repo_programs
+# no quotes so that string is split on spaces
+# fault tolerant if a package can't be found for some reason
 echo "[+] Done."
 
 # Relocate default directories
@@ -83,5 +85,6 @@ echo "[i] Possible remaining tasks:"
 echo "[i]  - chsh to zsh"
 echo "[i]  - install chrome"
 echo "[i]  - install pls"
+echo "[i]  - add guake to startup programs"
 echo
 echo "[+] Initialization complete. Reboot is recommended."
