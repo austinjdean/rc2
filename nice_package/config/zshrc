@@ -217,6 +217,8 @@ alias burpip="curl -ks https://www.google.com/search?q=my+ip --proxy 127.0.0.1:8
 alias ck="ssh-keygen -y" # check key
 alias lsshc="ps auxwww | grep -v 'grep' | grep sshd:" # was I drunk when I named this or what
 alias dn="nmap -Pn -sS" # default nmap
+alias qs="sudo nmap -Pn -sS --top-ports 10 -T5 --open" # quick scan
+alias ds="sudo nmap -Pn -sS --top-ports 10 -T5 -O -sV" # detailed scan
 
 # rsync aliases
 alias wp2x="rsync -rhuv --exclude=.git --delete /mnt/s/wallpapers/ /mnt/x/wallpapers/"
