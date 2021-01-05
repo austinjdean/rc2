@@ -4,19 +4,21 @@
 # install.sh
 # ==========
 
-sudo whoami > /dev/null 2>&1
-return_value=$?
+userName=$(sudo whoami)
 
-if [ "$return_value" -ne 0 ]; then
-	echo "[x] Best learn that root password first." 
-	exit 1
+if [[ "$userName" = "root" ]]; then
+	# continue
+	:
+else
+	echo "[x] Best learn that root password first."
+	exit 69
 fi
 
 repo_name="rc2"
 git_dir="$HOME/git"
 package_dir="$git_dir/$repo_name/nice_package"
 repo_programs="zsh vim guake sublime-text xclip nmap dconf-cli"
-default_directories=(Desktop Documents Downloads Music Pictures Public Templates Videos)
+default_directories="Desktop Documents Downloads Music Pictures Public Templates Videos"
 
 # Add Sublime to repos and update apt sources
 # ===========================================
@@ -48,7 +50,7 @@ echo "[+] Done."
 # ============================
 echo "[i] Relocating default directories..."
 
-for dir in ${default_directories[@]}; do
+for dir in $default_directories; do
 	echo "[i] Creating new directory: $dir..."
 	mkdir -p $HOME/defaults/$dir
 	echo "[i] Moving contents of $dir..."

@@ -4,12 +4,14 @@
 # clean.sh
 # ========
 
-sudo whoami > /dev/null 2>&1
-return_value=$?
+userName=$(sudo whoami)
 
-if [ "$return_value" -ne 0 ]; then
-	echo "[x] Best learn that root password first." 
-	exit 1
+if [[ "$userName" = "root" ]]; then
+	# continue
+	:
+else
+	echo "[x] Best learn that root password first."
+	exit 69
 fi
 
 repo_name="rc2"
