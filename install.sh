@@ -72,6 +72,9 @@ mkdir -p "$HOME/.config/sublime-text-3/Packages"
 rm -rf "$HOME/.config/sublime-text-3/Packages/User"
 ln -siT "$package_dir/sublime" "$HOME/.config/sublime-text-3/Packages/User"
 
+echo "[i] Setting up Guake config..."
+guake --restore-preferences "$package_dir/config/guake.conf"
+
 echo "[i] Creating symlinks to utility scripts..."
 # lns
 sudo ln -si "$package_dir/scripts/lns.sh" "/usr/local/bin/lns"

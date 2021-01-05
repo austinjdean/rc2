@@ -16,6 +16,11 @@ repo_name="rc2"
 git_dir="$HOME/git"
 package_dir="$git_dir/$repo_name/nice_package"
 
+# Notably, clean does not account for:
+# - relocated home directories
+# - adding Sublime repos
+# - installed repo programs e.g. guake, xclip, nmap, zsh, etc.
+
 # Remove symlinks to config files
 # ===============================
 echo "[i] Removing zshrc symlink..."
