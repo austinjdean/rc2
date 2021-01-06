@@ -124,6 +124,13 @@ which() { # gotta bend over backwards to get a good answer around here
 	type -a "$1"
 }
 
+smb() {
+	echo "====="
+	echo "SMB server hosted here: \\\\\\$(ip -4 -j -p a | jq .[].addr_info[].local | grep -v "127.0.0.1" | tr -d '"')\kali"
+	echo "====="
+	sudo /opt/impacket/examples/smbserver.py -smb2support kali "$PWD"
+}
+
 # Touchpad stuff
 declare -i ID
 ID=`xinput list 2>/dev/null | grep -Eo 'TouchPad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
