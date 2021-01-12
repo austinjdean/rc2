@@ -126,9 +126,9 @@ which() { # gotta bend over backwards to get a good answer around here
 
 smb() {
 	echo "====="
-	echo "SMB server hosted here: \\\\\\$(ip -4 -j -p a | jq .[].addr_info[].local | grep -v "127.0.0.1" | tr -d '"')\kali"
+	echo "SMB server hosted here: \\\\\\$(ip -4 -j -p a | jq .[].addr_info[].local | grep -v "127.0.0.1" | tr -d '"')\\\\$(hostname)"
 	echo "====="
-	sudo /opt/impacket/examples/smbserver.py -smb2support kali "$PWD"
+	sudo smbserver -smb2support kali "$PWD"
 }
 
 # Touchpad stuff
