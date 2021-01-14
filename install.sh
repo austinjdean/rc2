@@ -17,7 +17,7 @@ fi
 repo_name="rc2"
 git_dir="$HOME/git"
 package_dir="$git_dir/$repo_name/nice_package"
-repo_programs="zsh vim guake sublime-text xclip nmap dconf-cli"
+repo_programs="zsh vim guake sublime-text xclip nmap dconf-cli jq"
 default_directories="Desktop Documents Downloads Music Pictures Public Templates Videos"
 
 # Add Sublime to repos and update apt sources
