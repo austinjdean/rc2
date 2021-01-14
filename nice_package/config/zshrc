@@ -108,11 +108,11 @@ fr() { # force reset
 }
 
 f() { # casual, lowercase
-	find . -iname "*$1*" # case insensitive, wildcards
+	find . -iname "*$1*" 2>/dev/null # case insensitive, wildcards
 }
 
 F() { # strict, uppercase
-	find . -name "$1" # case sensitive, no wildcards
+	find . -name "$1" 2>/dev/null # case sensitive, no wildcards
 }
 
 which() { # gotta bend over backwards to get a good answer around here
@@ -126,9 +126,9 @@ which() { # gotta bend over backwards to get a good answer around here
 
 smb() {
 	echo "====="
-	echo "SMB server hosted here: \\\\\\$(ip -4 -j -p a | jq .[].addr_info[].local | grep -v "127.0.0.1" | tr -d '"')\kali"
+	echo "SMB server hosted here: \\\\\\$(ip -4 -j -p a | jq .[].addr_info[].local | grep -v "127.0.0.1" | tr -d '"')\\\\$(hostname)"
 	echo "====="
-	sudo /opt/impacket/examples/smbserver.py -smb2support kali "$PWD"
+	sudo smbserver -smb2support $(hostname) "$PWD"
 }
 
 # Touchpad stuff
