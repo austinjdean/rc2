@@ -56,7 +56,7 @@ for dir in $default_directories; do
 	echo "[i] Moving contents of $dir..."
 	mv $HOME/$dir/* $HOME/defaults/$dir
 	echo "[i] Removing default directory: $dir..."
-	rmdir $HOME/$dir
+	rm -rf $HOME/$dir
 done
 
 echo "[i] Overwriting ~/.config/user-dirs.dirs to reflect changes..."
