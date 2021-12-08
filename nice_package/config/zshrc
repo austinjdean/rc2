@@ -131,6 +131,10 @@ smb() {
 	sudo smbserver -smb2support $(hostname) "$PWD"
 }
 
+l0nch() { # where to get food
+	printf 'ch1p\nh4L@l\nn4f\njArMy truck\nf1v3 guy$\nsw33tgr33n\nh4tch n c00p\nc@v4\ncl3@v3r$\nb@0 n1n3\nhud4\nw3ndy$\np0p3y3$\n' | shuf -n1
+}
+
 # Touchpad stuff
 declare -i ID
 ID=`xinput list 2>/dev/null | grep -Eo 'TouchPad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
